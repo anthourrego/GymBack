@@ -8,9 +8,9 @@ Route::get('/', function () {
 })->name('login');
 
 /* Route::middleware(['auth', 'verified'])->group(function () { */
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
+    Route::get('home', function () {
+        return Inertia::render('home/home');
+    })->name('home');
 /* }); */
 
 require __DIR__.'/settings.php';
