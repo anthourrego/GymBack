@@ -74,11 +74,9 @@ class LoginRequest extends FormRequest
      * @return array
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticateForApi(): array
+    public function authenticateForApi(User $user): array
     {
         $this->ensureIsNotRateLimited();
-
-        $user = User::where('email', $this->email)->first();
 
         if (!$user || !Hash::check($this->password, $user->password)) {
             RateLimiter::hit($this->throttleKey());
@@ -90,7 +88,7 @@ class LoginRequest extends FormRequest
 
         RateLimiter::clear($this->throttleKey());
 
-        // Crear token para API
+        // Create Token for api
         $token = $user->createToken($this->getTokenName())->plainTextToken;
 
         return [
@@ -106,7 +104,6 @@ class LoginRequest extends FormRequest
     {
         $deviceName = $this->header('User-Agent', 'unknown-device');
         
-        // Si viene de móvil, usar un nombre más específico
         if ($this->wantsJson() || $this->expectsJson()) {
             return 'mobile-app-' . Str::limit($deviceName, 20, '');
         }
@@ -153,7 +150,6 @@ class LoginRequest extends FormRequest
      */
     protected function maxAttempts(): int
     {
-        // Más estricto para API requests
         return $this->isApiRequest() ? 3 : 5;
     }
 

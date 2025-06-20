@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Services\UserService;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -13,6 +14,14 @@ use Inertia\Response;
 
 class AuthenticatedSessionController extends Controller
 {
+
+    private UserService $userService;
+
+    public function __construct (UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     /**
      * Display the login view for web.
      */
@@ -33,7 +42,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended(route('home'));
     }
 
     /**
@@ -42,7 +51,11 @@ class AuthenticatedSessionController extends Controller
     public function storeApi(LoginRequest $request): JsonResponse
     {
         try {
-            $result = $request->authenticateForApi();
+            $request->ensureIsNotRateLimited();
+
+            $user = $this->userService->getByEmail($request->email);
+
+            $result = $request->authenticateForApi($user);
             
             return response()->json([
                 'success' => true,
