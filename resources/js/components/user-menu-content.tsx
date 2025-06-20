@@ -11,7 +11,7 @@ interface UserMenuContentProps {
 
 export function UserMenuContent({ user }: UserMenuContentProps) {
     const cleanup = useMobileNavigation();
-
+    
     const handleLogout = () => {
         cleanup();
         router.flushAll();
@@ -24,7 +24,7 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
                     <UserInfo user={user} showEmail={true} />
                 </div>
             </DropdownMenuLabel>
-            <DropdownMenuSeparator />
+           {/*  <DropdownMenuSeparator />
             <DropdownMenuGroup>
                 <DropdownMenuItem asChild>
                     <Link className="block w-full" href={route('profile.edit')} as="button" prefetch onClick={cleanup}>
@@ -32,7 +32,7 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
                         Settings
                     </Link>
                 </DropdownMenuItem>
-            </DropdownMenuGroup>
+            </DropdownMenuGroup> */}
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
                 <Link className="block w-full" method="post" href={route('logout')} as="button" onClick={handleLogout}>
