@@ -1,14 +1,38 @@
-import { Button } from "@/components/ui/button";
 import { AnimatedGradientButton, HoverBorderGradient } from "@/components/ui/customTheme";
+import { Button } from "@/components/ui/button";
+import { EyeOff, Lock, Mail } from "lucide-react";
+import { FormEventHandler } from 'react';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { router } from "@inertiajs/react";
-import { EyeOff, Lock, Mail } from "lucide-react";
+import { router, useForm } from "@inertiajs/react";
+import { useRoute } from 'ziggy-js';
+
+type LoginForm = {
+  email: string;
+  password: string;
+  remember: boolean;
+};
 
 export function AuthForm() {
+  const { data, setData, post, reset } = useForm<Required<LoginForm>>({
+    email: '',
+    password: '',
+    remember: false,
+  });
+
+  const submit: FormEventHandler = (e) => {
+    e.preventDefault();
+
+    post(route('login'), {
+      onFinish: () => reset('password'),
+    });
+  };
+
+  const route = useRoute();
+
   return (
     <section className="space-y-6">
-      <form onSubmit={() => {}} className="space-y-4">
+      <form onSubmit={submit} className="space-y-4">
         {/* Campo de email */}
         <div className="space-y-2">
           <Label htmlFor="email" className="flex items-center gap-2">
@@ -19,8 +43,8 @@ export function AuthForm() {
             id="email"
             type="email"
             placeholder="admin@fitwinner.com"
-            value={''}
-            onChange={(e) => console.log(e)}
+            value={data.email}
+            onChange={(e) => setData({ ...data, email: e.target.value })}
             className="transition-colors focus-within:border-primary/50"
             required
           />
@@ -37,8 +61,8 @@ export function AuthForm() {
               id="password"
               type={'password'}
               placeholder="••••••••"
-              value={''}
-              onChange={(e) => console.log(e)}
+              value={data.password}
+              onChange={(e) => setData({ ...data, password: e.target.value })}
               className="pr-10 transition-colors focus-within:border-primary/50"
               required
             />
@@ -57,7 +81,7 @@ export function AuthForm() {
 
         <div className="space-y-3">
           <HoverBorderGradient className="w-full rounded-md">
-            <AnimatedGradientButton type="button" className="w-full" onClick={() => router.visit(route('home'))}>
+            <AnimatedGradientButton type="submit" className="w-full" onClick={() => router.visit(route('home'))}>
               <div className="flex items-center gap-2">
                 <Lock className="h-4 w-4" />
                 Iniciar Sesión
