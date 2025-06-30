@@ -13,5 +13,5 @@ Route::middleware(['from-request', 'auth:sanctum', 'verified'])->group(function 
     })->name('home');
 });
 
-require __DIR__.'/modules/settings.php';
-require __DIR__.'/auth.php';
+// require __DIR__.'/modules/settings.php';
+// require __DIR__.'/auth.php';

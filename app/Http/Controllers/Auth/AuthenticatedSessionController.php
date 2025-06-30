@@ -46,37 +46,6 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Handle an incoming authentication request for API.
-     */
-    public function storeApi(LoginRequest $request): JsonResponse
-    {
-        try {
-            $request->ensureIsNotRateLimited();
-
-            $user = $this->userService->getByEmail($request->email);
-
-            $result = $request->authenticateForApi($user);
-            
-            return response()->json([
-                'success' => true,
-                'message' => 'Login exitoso',
-                'data' => [
-                    'user' => $result['user'],
-                    'token' => $result['token'],
-                    'token_type' => 'Bearer'
-                ]
-            ], 200);
-
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Credenciales incorrectas',
-                'errors' => $e->errors()
-            ], 422);
-        }
-    }
-
-    /**
      * Destroy an authenticated session for web.
      */
     public function destroy(Request $request): RedirectResponse
@@ -89,45 +58,4 @@ class AuthenticatedSessionController extends Controller
         return redirect('/');
     }
 
-    /**
-     * Destroy an authenticated session for API.
-     */
-    public function destroyApi(Request $request): JsonResponse
-    {
-        // Eliminar el token actual
-        $request->user()->currentAccessToken()->delete();
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Logout exitoso'
-        ]);
-    }
-
-    /**
-     * Destroy all sessions for API (logout from all devices).
-     */
-    public function destroyAllApi(Request $request): JsonResponse
-    {
-        // Eliminar todos los tokens del usuario
-        $request->user()->tokens()->delete();
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Logout de todos los dispositivos exitoso'
-        ]);
-    }
-
-    /**
-     * Get authenticated user for API.
-     */
-    public function userApi(Request $request): JsonResponse
-    {
-        return response()->json([
-            'success' => true,
-            'data' => [
-                'user' => $request->user(),
-                'current_token' => $request->user()->currentAccessToken()
-            ]
-        ]);
-    }
 }
