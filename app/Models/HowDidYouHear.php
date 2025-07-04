@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DocumentType extends Model
+class HowDidYouHear extends Model
 {
     use HasFactory;
 
-    protected $table = 'document_types';
+    protected $table = 'how_did_you_hear';
 
     protected $fillable = [
         'name',
-        'code',
         'is_active',
     ];
 

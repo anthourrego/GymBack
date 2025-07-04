@@ -23,6 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PersonTypesTableSeeder::class,
             DocumentTypesTableSeeder::class,
+            HowDidYouHearSeeder::class,
+            CountriesTableSeeder::class,
+            TaxResponsabilitiesTableSeeder::class,
+            GenderTableSeeder::class,
         ]);
     }
 }
