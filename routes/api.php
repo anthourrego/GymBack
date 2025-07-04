@@ -8,6 +8,8 @@ require __DIR__.'/modulesApi/auth.php';
 
 Route::middleware('auth:sanctum')->group(function () {
     require __DIR__.'/modulesApi/clients.php';
+    require __DIR__.'/modulesApi/documentTypes.php';
     require __DIR__.'/modulesApi/membership.php';
+    require __DIR__.'/modulesApi/personTypes.php';
     require __DIR__.'/modulesApi/user.php';
 });

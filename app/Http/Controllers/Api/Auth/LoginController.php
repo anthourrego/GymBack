@@ -36,7 +36,7 @@ class LoginController extends Controller
                 'data' => [
                     'user' => $result['user'],
                     'token' => $result['token'],
-                    'token_type' => 'Bearer'
+                    // 'token_type' => 'Bearer'
                 ]
             ], 200);
 
