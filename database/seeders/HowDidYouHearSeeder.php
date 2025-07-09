@@ -24,6 +24,7 @@ class HowDidYouHearSeeder extends Seeder
             ['name' => 'Correo electrónico'],
             ['name' => 'Radio o TV'],
             ['name' => 'Otro'],
+            ['name' => 'No Aplica'],
         ];
 
         DB::table('how_did_you_hear')->insert($options);
