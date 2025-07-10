@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('phone', 20)->nullable();
             $table->string('email', 100);
             $table->foreignId('gender_id')->constrained('gender')->nullable();
+            $table->foreignId('blood_type_id')->constrained('blood_types')->nullable();
             $table->string('eps', 100)->nullable();
             $table->string('profession', 100)->nullable();
             $table->string('phone_emergency', 20)->nullable();
@@ -36,8 +37,8 @@ return new class extends Migration
             $table->foreignId('how_did_you_hear_id')->constrained('how_did_you_hear')->nullable();
             $table->date('expiration_date')->nullable();
             $table->string('observations');
-
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

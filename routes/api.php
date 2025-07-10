@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/modulesApi/auth.php';
 
 Route::middleware('auth:sanctum')->group(function () {
+    require __DIR__.'/modulesApi/bloodTypes.php';
     require __DIR__.'/modulesApi/clients.php';
     require __DIR__.'/modulesApi/countries.php';
     require __DIR__.'/modulesApi/documentTypes.php';

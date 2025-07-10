@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             CountriesTableSeeder::class,
             TaxResponsabilitiesTableSeeder::class,
             GenderTableSeeder::class,
+            BloodTypesTableSeeder::class,
         ]);
     }
 }
