@@ -13,7 +13,7 @@ class BloodTypesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('gendblood_typeser')->insert([
+        DB::table('blood_types')->insert([
             [
                 'name' => 'A+',
                 'is_active' => true,

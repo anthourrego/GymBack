@@ -27,7 +27,7 @@ class StoreClientRequest extends FormRequest
             'country_id'            => 'nullable|exists:countries,id',
             'address'               => 'nullable|string|max:255',
             'phone'                 => 'nullable|string|max:20',
-            'email'                 => 'required|email|max:100|unique:clients,email',
+            'email'                 => 'nullable|email|max:100',
             'gender_id'             => 'nullable|exists:gender,id',
             'eps'                   => 'nullable|string|max:100',
             'profession'            => 'nullable|string|max:100',

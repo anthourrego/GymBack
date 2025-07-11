@@ -4,10 +4,11 @@ namespace App\Services;
 
 use App\Models\Client;
 use Illuminate\Support\Collection;
+use Illuminate\Pagination\CursorPaginator;
 
 class ClientService
 {
-    public function getAll($is_active): Collection
+    public function getAll($is_active): CursorPaginator
     {
         $clients = Client::with(['personType', 'documentType', 'taxResponsability', 'gender', 'country', 'howDidYouHear']);
 

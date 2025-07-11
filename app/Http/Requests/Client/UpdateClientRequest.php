@@ -29,7 +29,7 @@ class UpdateClientRequest extends FormRequest
             'country_id'            => 'sometimes|nullable|exists:countries,id',
             'address'               => 'sometimes|nullable|string|max:255',
             'phone'                 => 'sometimes|nullable|string|max:20',
-            'email'                 => 'sometimes|required|email|max:100|unique:clients,email,' . $clientId,
+            'email'                 => 'sometimes|nullable|email|max:100',
             'gender_id'             => 'sometimes|nullable|exists:gender,id',
             'eps'                   => 'sometimes|nullable|string|max:100',
             'profession'            => 'sometimes|nullable|string|max:100',
