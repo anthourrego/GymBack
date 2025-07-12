@@ -29,14 +29,15 @@ class ClientService
         return Client::create($data);
     }
 
-    public function update(Client $client, array $data): Client
+    public function update(int $id, array $data): Client
     {
+        $client = Client::find($id);
         $client->update($data);
         return $client;
     }
 
-    public function delete(Client $client): void
+    public function delete(int $id): void
     {
-        $client->delete();
+        Client::find($id)->delete();
     }
 }

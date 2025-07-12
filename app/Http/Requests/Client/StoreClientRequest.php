@@ -36,6 +36,7 @@ class StoreClientRequest extends FormRequest
             'how_did_you_hear_id'   => 'nullable|exists:how_did_you_hear,id',
             'expiration_date'       => 'nullable|date',
             'observations'          => 'nullable|string',
+            'blood_type_id'         => 'nullable|exists:blood_types,id',
         ];
     }
 }

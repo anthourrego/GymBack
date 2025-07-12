@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('person_type_id')->constrained('person_types')->nullable();
             $table->foreignId('tax_responsability_id')->nullable()->constrained('tax_responsability');
             $table->date('date_of_birth')->nullable();
-            $table->date('place_of_birth')->nullable();
+            $table->string('place_of_birth', 100)->nullable();
             $table->foreignId('country_id')->nullable()->constrained('countries');
             $table->string('address')->nullable();
             $table->string('phone', 20)->nullable();

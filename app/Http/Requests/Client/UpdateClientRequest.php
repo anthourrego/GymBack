@@ -13,15 +13,13 @@ class UpdateClientRequest extends FormRequest
 
     public function rules(): array
     {
-        $clientId = $this->route('client')->id;
-
         return [
             'first_name'            => 'sometimes|required|string|max:255',
             'last_name'             => 'sometimes|required|string|max:255',
             'is_leader'             => 'sometimes|required|boolean',
             'enrollment_date'       => 'sometimes|required|date',
             'document_type_id'      => 'sometimes|required|exists:document_types,id',
-            'identification'        => 'sometimes|required|string|max:50|unique:clients,identification,' . $clientId,
+            'identification'        => 'sometimes|required|string|max:50',
             'person_type_id'        => 'sometimes|nullable|exists:person_types,id',
             'tax_responsability_id' => 'sometimes|nullable|exists:tax_responsability,id',
             'date_of_birth'         => 'sometimes|nullable|date',
@@ -38,6 +36,7 @@ class UpdateClientRequest extends FormRequest
             'how_did_you_hear_id'   => 'sometimes|nullable|exists:how_did_you_hear,id',
             'expiration_date'       => 'sometimes|nullable|date',
             'observations'          => 'sometimes|nullable|string',
+            'blood_type_id'         => 'sometimes|nullable|exists:blood_types,id',
         ];
     }
 }
