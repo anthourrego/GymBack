@@ -19,9 +19,11 @@ class ClientController extends Controller
         $this->clientService = $clientService;
     }
 
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $clients = $this->clientService->getAll();
+        $is_active = $request->get('is_active') === 1 ? true : ($request->get('is_active') === 0 ? false : null);
+
+        $clients = $this->clientService->getAll($is_active);
         return response()->json($clients);
     }
 
@@ -40,19 +42,19 @@ class ClientController extends Controller
     {
         $client = $this->clientService->create($request->validated());
 
-        return response()->json($client, 201);
+        return response()->json($client);
     }
 
-    public function update(UpdateClientRequest $request, Client $client): JsonResponse
+    public function update(UpdateClientRequest $request, int $id): JsonResponse
     {
-        $client = $this->clientService->update($client, $request->validated());
+        $client = $this->clientService->update($id, $request->validated());
 
         return response()->json($client);
     }
 
-    public function destroy(Client $client): JsonResponse
+    public function destroy(int $id): JsonResponse
     {
-        $this->clientService->delete($client);
+        $this->clientService->delete($id);
 
         return response()->json(['message' => 'Client deleted successfully.']);
     }

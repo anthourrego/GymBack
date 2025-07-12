@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DocumentType extends Model
+class TaxResponsability extends Model
 {
     use HasFactory;
 
-    protected $table = 'document_types';
+    protected $table = 'tax_responsability';
 
     protected $fillable = [
         'name',

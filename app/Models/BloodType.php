@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DocumentType extends Model
+class BloodType extends Model
 {
     use HasFactory;
 
-    protected $table = 'document_types';
+    protected $table = 'blood_types';
 
     protected $fillable = [
         'name',
-        'code',
         'is_active',
     ];
 

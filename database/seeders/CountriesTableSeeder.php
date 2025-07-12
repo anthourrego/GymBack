@@ -6,31 +6,24 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PersonTypesTableSeeder extends Seeder
+class CountriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('person_types')->insert([
+        DB::table('countries')->insert([
             [
-                'code' => '2',
-                'name' => 'Natural',
+                'code' => 'CO',
+                'name' => 'Colombia',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'code' => '1',
-                'name' => 'Juridica',
-                'is_active' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'code' => '3',
-                'name' => 'Gran Contribuyente',
+                'code' => 'EC',
+                'name' => 'Ecuador',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),

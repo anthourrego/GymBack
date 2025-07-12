@@ -6,77 +6,62 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class DocumentTypesTableSeeder extends Seeder
+class BloodTypesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('document_types')->insert([
+        DB::table('blood_types')->insert([
             [
-                'code' => '13',
-                'name' => 'Cedula de Ciudadania',
+                'name' => 'A+',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'code' => '41',
-                'name' => 'Pasaporte',
+                'name' => 'A-',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'code' => '12',
-                'name' => 'Tarjeta de Identidad',
+                'name' => 'B+',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'code' => '21',
-                'name' => 'Tarjeta de Extranjería',
+                'name' => 'B-',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'code' => '22',
-                'name' => 'Cédula de Extranjería',
+                'name' => 'AB+',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'code' => '31',
-                'name' => 'NIT',
+                'name' => 'AB-',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'code' => '42',
-                'name' => 'Documento de Identificación Extranjero',
+                'name' => 'O+',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'code' => '91',
-                'name' => 'NIUP',
+                'name' => 'O-',
                 'is_active' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-            [
-                'code' => '50',
-                'name' => 'Nit De Otro Pais',
-                'is_active' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+            ]
         ]);
     }
 }

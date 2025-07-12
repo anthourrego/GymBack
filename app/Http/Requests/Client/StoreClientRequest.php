@@ -14,13 +14,29 @@ class StoreClientRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'person_type_id' => 'required|exists:person_types,id',
-            'document_type_id' => 'required|exists:document_types,id',
-            'identification' => 'required|string|max:50|unique:clients,identification',
-            'email' => 'required|email|unique:clients,email',
-            'phone' => 'nullable|string|max:50',
+            'first_name'            => 'required|string|max:255',
+            'last_name'             => 'required|string|max:255',
+            'is_leader'             => 'required|boolean',
+            'enrollment_date'       => 'required|date',
+            'document_type_id'      => 'required|exists:document_types,id',
+            'identification'        => 'required|string|max:50|unique:clients,identification',
+            'person_type_id'        => 'nullable|exists:person_types,id',
+            'tax_responsability_id' => 'nullable|exists:tax_responsability,id',
+            'date_of_birth'         => 'nullable|date',
+            'place_of_birth'        => 'nullable|string|max:255',
+            'country_id'            => 'nullable|exists:countries,id',
+            'address'               => 'nullable|string|max:255',
+            'phone'                 => 'nullable|string|max:20',
+            'email'                 => 'nullable|email|max:100',
+            'gender_id'             => 'nullable|exists:gender,id',
+            'eps'                   => 'nullable|string|max:100',
+            'profession'            => 'nullable|string|max:100',
+            'phone_emergency'       => 'nullable|string|max:20',
+            'contact_emergency'     => 'nullable|string|max:100',
+            'how_did_you_hear_id'   => 'nullable|exists:how_did_you_hear,id',
+            'expiration_date'       => 'nullable|date',
+            'observations'          => 'nullable|string',
+            'blood_type_id'         => 'nullable|exists:blood_types,id',
         ];
     }
 }
