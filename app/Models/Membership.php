@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Membership extends Model
+{
+    //
+    protected $fillable = [
+        'name',
+        'description',
+        'generate_payment',
+        'generate_movement_exp_date',
+        'generate_bill',
+        'generate_code_customer',
+        'controlled_plan',
+        'required_list_members',
+        'can_be_invited',
+        'required_footprint',
+        'has_assessment_physical_therapy',
+        'required_gift_voucher',
+        'admission_all_sites',
+        'charge_registration',
+        'controls_user_access',
+        'max_entry_per_day',
+        'max_day_per_week',
+        'min_members_group_plan',
+        'max_members_group_plan',
+        'guest_monday',
+        'guest_tuesday',
+        'guest_wednesday',
+        'guest_thursday',
+        'guest_friday',
+        'guest_saturday',
+        'guest_sunday',
+        'guest_holiday',
+        'start_time_restriction',
+        'end_time_restriction',
+        'restrictionday_monday',
+        'restrictionday_tuesday',
+        'restrictionday_wednesday',
+        'restrictionday_thursday',
+        'restrictionday_friday',
+        'restrictionday_saturday',
+        'restrictionday_sunday',
+        'restrictionday_holiday',
+        'age_restriction_type',
+        'age_restriction_value',
+        'birthday_discount',
+        'birthday_choose_gift_discount',
+        'discount_early_payment',
+        'discount_early_payment_first',
+        'increase_arrears',
+        'generate_payment_plan',
+        'start_first_day_month',
+        'contains_class_package',
+        'issues_card',
+        'capture_gift_voucher',
+        'generate_cxc',
+        'type_payment',
+        'price_plan',
+        'percentage_discount',
+        'cost_center',
+    ];
+}
