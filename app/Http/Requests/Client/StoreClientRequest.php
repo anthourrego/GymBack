@@ -17,6 +17,7 @@ class StoreClientRequest extends FormRequest
             'first_name'            => 'required|string|max:255',
             'last_name'             => 'required|string|max:255',
             'is_leader'             => 'required|boolean',
+            'is_active'             => 'required|boolean',
             'enrollment_date'       => 'required|date',
             'document_type_id'      => 'required|exists:document_types,id',
             'identification'        => 'required|string|max:50|unique:clients,identification',

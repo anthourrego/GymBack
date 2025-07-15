@@ -16,7 +16,7 @@ class ClientService
             $clients->where('is_active', $is_active);
         }
 
-        return $clients->cursorPaginate(15);
+        return $clients->orderBy('id', 'DESC')->cursorPaginate(15);
     }
 
     public function getById(int $id): ?Client

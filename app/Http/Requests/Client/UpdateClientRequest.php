@@ -17,6 +17,7 @@ class UpdateClientRequest extends FormRequest
             'first_name'            => 'sometimes|required|string|max:255',
             'last_name'             => 'sometimes|required|string|max:255',
             'is_leader'             => 'sometimes|required|boolean',
+            'is_active'             => 'sometimes|required|boolean',
             'enrollment_date'       => 'sometimes|required|date',
             'document_type_id'      => 'sometimes|required|exists:document_types,id',
             'identification'        => 'sometimes|required|string|max:50',

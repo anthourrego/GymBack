@@ -14,6 +14,7 @@ class Client extends Model
         'first_name',
         'last_name',
         'is_leader',
+        'is_active',
         'enrollment_date',
         'document_type_id',
         'identification',
