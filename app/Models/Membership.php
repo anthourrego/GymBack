@@ -62,5 +62,6 @@ class Membership extends Model
         'price_plan',
         'percentage_discount',
         'cost_center',
+        'is_active',
     ];
 }

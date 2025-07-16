@@ -51,9 +51,9 @@ class StoreMembershipRequest extends FormRequest{
             'percentage_discount'               => 'required|integer',
             'cost_center'                       => 'required|integer',
             'guest_days'                        => 'nullable|array',
-            'guest_days.*'                      => 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday,Holiday',
+            'guest_days.*'                      => 'in:monday,tuesday,wednesday,thursday,friday,saturday,sunday,holiday',
             'restriction_days'                  => 'nullable|array',
-            'restriction_days.*'                => 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday,Holiday',
+            'restriction_days.*'                => 'in:monday,tuesday,wednesday,thursday,friday,saturday,sunday,holiday',
         ];
     }
 }

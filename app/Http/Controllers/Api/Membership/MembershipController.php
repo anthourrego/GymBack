@@ -20,9 +20,9 @@ class MembershipController extends Controller
 
     public function store(StoreMembershipRequest $request): JsonResponse
     {
-        $client = $this->membershipService->create($request->validated());
+        $membership = $this->membershipService->create($request->validated());
 
-        return response()->json($client);
+        return response()->json($membership);
     }
 
     public function index(Request $request):JsonResponse
