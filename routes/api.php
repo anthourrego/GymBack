@@ -17,4 +17,5 @@ Route::middleware('auth:sanctum')->group(function () {
     require __DIR__.'/modulesApi/personTypes.php';
     require __DIR__.'/modulesApi/taxResponsability.php';
     require __DIR__.'/modulesApi/user.php';
+    require __DIR__.'/modulesApi/membership.php';
 });
