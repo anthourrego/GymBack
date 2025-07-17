@@ -27,13 +27,21 @@ class SettingAppService
                 // Convert boolean values to string for storage
                 $valueToStore = is_bool($value) ? ($value ? 'true' : 'false') : (string) $value;
 
-                // Update existing setting or create new one
-                $setting = Setting::updateOrCreate(
-                    ['key_setting' => $key],
-                    ['value_setting' => $valueToStore]
-                );
-
-                $settings[] = $setting;
+                // Check if setting already exists
+                $existingSetting = Setting::where('key_setting', $key)->first();
+                
+                if ($existingSetting) {
+                    // Update existing setting
+                    $existingSetting->update(['value_setting' => $valueToStore]);
+                    $settings[] = $existingSetting;
+                } else {
+                    // Create new setting
+                    $setting = Setting::create([
+                        'key_setting' => $key,
+                        'value_setting' => $valueToStore
+                    ]);
+                    $settings[] = $setting;
+                }
             }
 
             DB::commit();
