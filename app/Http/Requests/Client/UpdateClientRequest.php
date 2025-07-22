@@ -38,6 +38,8 @@ class UpdateClientRequest extends FormRequest
             'expiration_date'       => 'sometimes|nullable|date',
             'observations'          => 'sometimes|nullable|string',
             'blood_type_id'         => 'sometimes|nullable|exists:blood_types,id',
+            'state_id'              => 'sometimes|nullable|exists:states,id',
+            'city_id'               => 'sometimes|nullable|exists:cities,id',
         ];
     }
 }

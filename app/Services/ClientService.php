@@ -10,7 +10,7 @@ class ClientService
 {
     public function getAll($is_active): CursorPaginator
     {
-        $clients = Client::with(['personType', 'documentType', 'taxResponsability', 'gender', 'country', 'howDidYouHear']);
+        $clients = Client::with(['personType', 'documentType', 'taxResponsability', 'gender', 'country', 'howDidYouHear', 'state', 'city']);
 
         if (!is_null($is_active)) {
             $clients->where('is_active', $is_active);
@@ -21,7 +21,7 @@ class ClientService
 
     public function getById(int $id): ?Client
     {
-        return Client::with(['personType', 'documentType', 'taxResponsability', 'gender', 'country', 'howDidYouHear'])->find($id);
+        return Client::with(['personType', 'documentType', 'taxResponsability', 'gender', 'country', 'howDidYouHear', 'state', 'city'])->find($id);
     }
 
     public function create(array $data): Client

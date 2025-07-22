@@ -35,6 +35,8 @@ class Client extends Model
         'expiration_date',
         'observations',
         'blood_type_id',
+        'state_id',
+        'city_id'
     ];
 
     /**
@@ -68,5 +70,15 @@ class Client extends Model
     public function howDidYouHear()
     {
         return $this->belongsTo(HowDidYouHear::class);
+    }
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
     }
 }
