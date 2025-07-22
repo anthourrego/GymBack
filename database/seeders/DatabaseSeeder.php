@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             TaxResponsabilitiesTableSeeder::class,
             GenderTableSeeder::class,
             BloodTypesTableSeeder::class,
+            DeptosCitiesColombia::class
         ]);
     }
 }

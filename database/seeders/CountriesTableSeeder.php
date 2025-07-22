@@ -24,7 +24,7 @@ class CountriesTableSeeder extends Seeder
             [
                 'code' => 'EC',
                 'name' => 'Ecuador',
-                'is_active' => true,
+                'is_active' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]
