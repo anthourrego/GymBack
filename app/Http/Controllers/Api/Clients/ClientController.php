@@ -59,4 +59,11 @@ class ClientController extends Controller
         return response()->json(['message' => 'Client deleted successfully.']);
     }
 
+    public function storeExternal(StoreClientRequest $request): JsonResponse
+    {
+        $client = $this->clientService->create($request->validated());
+
+        return response()->json($client);
+    }
+
 }
