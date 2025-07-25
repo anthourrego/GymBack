@@ -36,7 +36,8 @@ class Client extends Model
         'observations',
         'blood_type_id',
         'state_id',
-        'city_id'
+        'city_id',
+        'is_external'
     ];
 
     /**

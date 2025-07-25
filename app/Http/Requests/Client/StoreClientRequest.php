@@ -40,6 +40,7 @@ class StoreClientRequest extends FormRequest
             'blood_type_id'         => 'nullable|exists:blood_types,id',
             'state_id'              => 'nullable|exists:states,id',
             'city_id'               => 'nullable|exists:cities,id',
+            'is_external'           => 'nullable|boolean',
         ];
     }
 }
