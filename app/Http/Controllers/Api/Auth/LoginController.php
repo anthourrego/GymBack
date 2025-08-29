@@ -27,6 +27,12 @@ class LoginController extends Controller
             $request->ensureIsNotRateLimited();
 
             $user = $this->userService->getByEmail($request->email);
+            if(!$user) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'User not found',
+                ], 404);
+            }
 
             $result = $request->authenticateForApi($user);
             
