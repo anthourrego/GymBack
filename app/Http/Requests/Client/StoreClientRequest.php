@@ -41,6 +41,7 @@ class StoreClientRequest extends FormRequest
             'state_id'              => 'nullable|exists:states,id',
             'city_id'               => 'nullable|exists:cities,id',
             'is_external'           => 'nullable|boolean',
+            'membership_to_assign'  => 'nullable|exists:memberships,id',
         ];
     }
 }

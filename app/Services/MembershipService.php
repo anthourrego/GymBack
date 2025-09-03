@@ -40,7 +40,7 @@ class MembershipService
 
     public function get()
     {
-        $memberships = Membership::get();
+        $memberships = Membership::withCount('activeClients')->get();
         return $memberships;
     }
 }

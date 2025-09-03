@@ -54,6 +54,7 @@ class StoreMembershipRequest extends FormRequest{
             'guest_days.*'                      => 'in:monday,tuesday,wednesday,thursday,friday,saturday,sunday,holiday',
             'restriction_days'                  => 'nullable|array',
             'restriction_days.*'                => 'in:monday,tuesday,wednesday,thursday,friday,saturday,sunday,holiday',
+            'duration_days'                     => 'required|integer',
         ];
     }
 }

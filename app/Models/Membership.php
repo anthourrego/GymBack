@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Membership extends Model
 {
@@ -63,5 +64,20 @@ class Membership extends Model
         'percentage_discount',
         'cost_center',
         'is_active',
+        'duration_days',
     ];
+
+    public function clients(): BelongsToMany
+    {
+        return $this->belongsToMany(Client::class, 'client_membership')
+            ->withPivot(['start_date', 'end_date', 'status'])
+            ->withTimestamps();
+    }
+
+    public function activeClients()
+    {
+        return $this->belongsToMany(Client::class, 'client_membership')
+            ->withPivot(['start_date', 'end_date', 'status'])
+            ->wherePivot('status', 'active');
+    }
 }
